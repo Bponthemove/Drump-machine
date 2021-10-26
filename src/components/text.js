@@ -1,23 +1,18 @@
 import React from "react"
 
 const Text = ({ text, power }) => {
-    if (!power) {
-        return (
-            <div id='display-container-outer'>
-                <div id='display-container-inner-off'>
-                    <div className= 'display-off' id='display'></div>
+    
+    return (
+        <div id='display-container-outer'>
+            <div 
+                id={!power ? 'display-container-inner-off' : 'display-container-inner-on'}>
+                <div 
+                    className= {!power ? 'display-off' : 'display-on'} 
+                    id='display'>{!power ? '' : text}
                 </div>
             </div>
-        )
-    } else {
-        return (
-            <div id='display-container-outer'>
-                <div id='display-container-inner-on'>
-                    <div className= 'display-on' id='display'>{text}</div>
-                </div>
-            </div>
-        )
-    }
+        </div>
+    )   
 }
 
 export { Text }
